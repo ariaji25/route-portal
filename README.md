@@ -94,12 +94,13 @@ route-portal/
    make docker-run
 
 ### Improvement
-- [ ] For the net/http its quite hard to manage the endpoint, it would be better if we use http framework like Gin, Echo, Fiber and etc
-- [ ] More advance error handling
-- [ ] Tracer to trace the span and process that happen on the backend. So when any issue happen on production it is easier to debug. And also add more capable to do observability for monitoring the apps
-- [ ] Add Kubernets manifest for apps
-- [ ] Increase the unit testing coverage
-- [ ] Implement linter for each backend and frontend
-- [ ] Separate the business logic and UI on frontend to make the code more clean and easier to add unit testing on the frontend logic
-- [ ] Implement frontend test with bdd test combined with cypress
-- [ ] API Docs implementation with Swaggo for backend golang
+- [ ] For the built in net/http in golang, its quite hard to manage the endpoint, it would be better if we use http framework like Gin, Chi, Echo or Fiber.
+- [ ] More advance error handling.
+- [ ] Tracer to trace the span and process that happen on the backend. So when any issue happen on production it is easier to debug. Add more capabllities to do observability for monitoring the apps.
+- [ ] Add Kubernets manifest for the apps.
+- [ ] Increase the unit testing coverage.
+- [ ] Implement linter for each backend and frontend.
+- [ ] Separate the business logic and UI on frontend to make the code more clean and easier to add unit testing on the frontend logic.
+- [ ] Implement frontend test with bdd test combined with cypress, help to test end to end test between backend and frontend.
+- [ ] API Docs implementation with Swaggo for backend golang.
+- [ ] Advance logging for backend. 
