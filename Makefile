@@ -34,7 +34,7 @@ docker-build:
 
 docker-run:
 	@echo "Run Docker image"
-	docker run --name route-portal -p 3000:3000 -p 8080:8080 route-portal
+	docker run --name route-portal -e NEXT_PUBLIC_API_URL=http://localhost:8080 -p 3000:3000 -p 8080:8080 route-portal
 
 # Run steps for local development
 run-backend:

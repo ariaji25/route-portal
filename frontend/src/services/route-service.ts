@@ -1,7 +1,7 @@
 import { Response, Route } from "@/types/models/route";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-const baseApiUrl = 'http://localhost:8080';
+const baseApiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
 
 export const routeServices = {
     async createRoute(data: Route): Promise<Response<Route>> {
