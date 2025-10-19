@@ -94,3 +94,4 @@ route-portal/
 - [ ] Implement linter for each backend and frontend
 - [ ] Separate the business logic and UI on frontend to make the code more clean and easier to add unit testing on the frontend logic
 - [ ] Implement frontend test with bdd test combined with cypress
+- [ ] API Docs implementation with Swaggo for backend golang
