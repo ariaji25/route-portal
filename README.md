@@ -44,8 +44,16 @@ route-portal/
 └── README.md                  # This file
 ```
 
-- Code structure for backend follow the clean architecture pattern and domain driven design that allow the project scalable to maintain and add another feature
-- Code structure for the frontend use reusable UI component and light weight API integration to make it easier to maintain
+### Backend
+- Code structure for backend follow the clean architecture pattern and domain driven design that allow the project scalable and maintainable.
+- Use customizeable struck validator that help to define fields validation for the http request payload.
+- Implemented unit testing with `testify` make it easy to cover basic unit testing for each endpoint combined with self defined `httptsestutils` to help test end to end http request.
+
+### Frontend
+- Code structure for the frontend use reusable UI component to reduce redudant UI definition like data view, form and modal.
+- Use MaterialUI as UI Framework, easy to use with declarative approach. Its provide ready to use component like AppBar, buttons, layouts, and etc. Very helpfull when facing fast development.
+- Implemnt builtin `fetch` from NextJs and  `react-query`  from tanstack to integrate the API. Make state management for query or manipulation more easy, simple, clean.
+- Use `zod` combined with `react-form` to handle the form validation. Zod help define the data schema and validatiom, react-form help manage the UI/UX state to show the current state form data and errors.
 
 ## 🚀 Quick Start
 
