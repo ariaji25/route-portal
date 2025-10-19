@@ -6,9 +6,10 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
-func NoWhitespace(fl validator.FieldLevel) bool {
+func IsValidName(fl validator.FieldLevel) bool {
 	value := fl.Field().String()
-	return !regexp.MustCompile(`\s`).MatchString(value)
+	regex := `^[a-z0-9]([-a-z0-9]*[a-z0-9])?$`
+	return regexp.MustCompile(regex).MatchString(value)
 }
 
 /*

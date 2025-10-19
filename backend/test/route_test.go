@@ -48,11 +48,11 @@ func (suite *RouteTestSuite) SetupTest() {
 	suite.repo = yaml.NewRouteYamlRepository()
 	suite.usecase = usecase.NewRouteUsecase(suite.repo)
 	suite.validate = validator.New()
-	if err := suite.validate.RegisterValidation("no_whitespace", validations.NoWhitespace); err != nil {
-		log.Println("Failed initiate validator no_whitespace", err)
+	if err := suite.validate.RegisterValidation("is_valid_name", validations.IsValidName); err != nil {
+		log.Println("Failed initiate validator is_valid_name", err)
 	}
 	if err := suite.validate.RegisterValidation("is_valid_path", validations.IsValidPath); err != nil {
-		log.Println("Failed initiate validator is_path", err)
+		log.Println("Failed initiate validator is_valid_path", err)
 	}
 	if err := suite.validate.RegisterValidation("is_valid_host", validations.IsValidHostName); err != nil {
 		log.Println("Failed initiate validator is_valid_host", err)

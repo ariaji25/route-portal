@@ -104,3 +104,4 @@ route-portal/
 - [ ] Implement frontend test with bdd test combined with cypress, help to test end to end test between backend and frontend.
 - [ ] API Docs implementation with Swaggo for backend golang.
 - [ ] Advance logging for backend. 
+- [ ] Change the YAML storage to postgresql to make the APP stateless and easy to scale

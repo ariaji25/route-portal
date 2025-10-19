@@ -3,7 +3,7 @@ package domain
 import "context"
 
 type RouteItem struct {
-	Name    string `json:"name" validate:"required,min=3,max=32,no_whitespace"`
+	Name    string `json:"name" validate:"required,min=3,max=32,is_valid_name"`
 	Host    string `json:"host" validate:"required,min=5,is_valid_host"`
 	Path    string `json:"path" validate:"required,is_valid_path"`
 	Backend string `json:"backend" validate:"required,min=5,is_valid_backend_url"`

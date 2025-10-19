@@ -18,14 +18,14 @@ import { en } from 'zod/locales';
 
 // Zod schema for route validation
 const routeSchema = z.object({
-    name: z.string().min(1, 'Name is required').min(3, 'Name must be at least 3 characters'),
+    name: z.string().min(3, 'Route name is required').regex(/^[a-z0-9]([-a-z0-9]*[a-z0-9])?$/, 'Route name can only contain letters, numbers, hyphens, and underscores'),
     host: z.string()
         .min(1, 'Host is required')
-        .regex(/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Invalid host format (e.g., example.com)'),
+        .regex(/^([a-z0-9]([a-z0-9\-]{0,61}[a-z0-9])?\.)*([a-z0-9]([a-z0-9\-]{0,61}[a-z0-9])?)$/, 'Invalid host format (e.g., example.com)'),
     backend: z.string().url('Backend must be a valid URL'),
     path: z.string()
         .min(1, 'Path is required')
-        .regex(/^\/.*/, 'Path must start with /'),
+        .regex(/^\/[a-zA-Z0-9\-\/_]*$/, 'Path must start with /'),
     enabled: z.boolean(),
 });
 
@@ -116,7 +116,7 @@ export default function RouteForm({
                     margin="normal"
                     error={!!errors.name}
                     helperText={errors.name?.message}
-                    placeholder="e.g., My API Route"
+                    placeholder="e.g., MyRoute1"
                 />
 
                 <TextField

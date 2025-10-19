@@ -29,11 +29,11 @@ func (*App) start(ctx context.Context) {
 
 	// Initiate custom validator dependencies
 	customValidator := validator.New()
-	if err := customValidator.RegisterValidation("no_whitespace", validations.NoWhitespace); err != nil {
-		log.Println("Failed initiate validator no_whitespace", err)
+	if err := customValidator.RegisterValidation("is_valid_name", validations.IsValidName); err != nil {
+		log.Println("Failed initiate validator is_valid_name", err)
 	}
 	if err := customValidator.RegisterValidation("is_valid_path", validations.IsValidPath); err != nil {
-		log.Println("Failed initiate validator is_path", err)
+		log.Println("Failed initiate validator is_valid_path", err)
 	}
 	if err := customValidator.RegisterValidation("is_valid_host", validations.IsValidHostName); err != nil {
 		log.Println("Failed initiate validator is_valid_host", err)
