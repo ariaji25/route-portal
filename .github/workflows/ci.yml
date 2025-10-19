@@ -1,0 +1,46 @@
+name: CI
+on: [push]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout repo code
+      - name: Check out repository code
+        uses: actions/checkout@v5
+      # Setup Go and node
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.24'
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+           node-version: '18'
+           cache: 'npm'
+           cache-dependency-path: './frontend/package-lock.json'
+      # Run backend test
+      - name: Run backend test
+        working-directory: ./backend
+        run: go mod download && make prep && make test
+      # Build backend
+      - name: Build backend binary
+        run: make build-backend
+      # Build frontend
+      - name: Build frontend
+        run: make prep-frontend && make build-frontend
+      # Build docker image
+      - name: Build docker image
+        run: make docker-build
+      # Run and smoke test
+      - name: Run and smoke test
+        run: |
+          # Run image on detach mode
+          docker run -d --name test-container -p 3000:3000 -p 8080:8080 route-portal:latest
+          # Wait service to be live
+          sleep 50
+          # Test curl
+          curl -f http://localhost:8080/health || exit 1
+          # Cleanup
+          docker stop test-container
+          docker rm test-container
+          

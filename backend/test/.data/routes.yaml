@@ -1,0 +1,5 @@
+- name: update-test-route
+  host: updated.example.com
+  path: /update-test
+  backend: http://localhost:8083
+  enabled: false
