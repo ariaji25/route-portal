@@ -59,7 +59,7 @@ export default function RouteForm({
             host: initialData?.host || '',
             backend: initialData?.backend || '',
             path: initialData?.path || '/',
-            enabled: initialData?.enabled ?? true,
+            enabled: initialData?.enabled || false,
         },
         mode: 'onChange',
     });
@@ -89,9 +89,6 @@ export default function RouteForm({
         reset();
         setSubmitStatus('idle');
     };
-
-    // Watch the enabled field to show dynamic feedback
-    const isEnabled = watch('enabled');
 
     return (
         <Paper elevation={2} sx={{ p: 3, maxWidth: 600, mx: 'auto' }}>
@@ -160,11 +157,8 @@ export default function RouteForm({
                                 color="primary"
                             />
                         }
-                        label={`Route is ${isEnabled ? 'enabled' : 'disabled'}`}
+                        label={`Enable Route`}
                     />
-                    <Typography variant="caption" display="block" color="text.secondary">
-                        {isEnabled ? 'This route will accept traffic' : 'This route will not accept traffic'}
-                    </Typography>
                 </Box>
 
                 <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end' }}>

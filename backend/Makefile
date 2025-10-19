@@ -6,8 +6,9 @@ BUILD_DIR := bin
 
 prep: 
 	@echo "Preparing backend..."
-	rm -rf ./backend/.data
-	mkdir -p ./backend/.data
+	rm -rf .data
+	mkdir -p .data
+	touch .data/routes.yaml
 	make clean && go mod tidy
 
 build:

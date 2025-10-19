@@ -33,8 +33,10 @@ RUN apk --no-cache add nodejs npm
 # Set workdir
 WORKDIR /app
 
-# Now Create dir for yaml storage
-RUN mkdir -p /.data
+# Prepare yaml file (recomend to change it with volume)
+RUN mkdir -p .data
+RUN touch .data/routes.yaml
+
 # Copy backend from builder
 COPY --from=backend-builder /app/backend/main ./backend
 
